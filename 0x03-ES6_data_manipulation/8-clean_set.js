@@ -1,15 +1,20 @@
 /* eslint-disable no-unused-expressions */
 
 export default function cleanSet(set, startString) {
-  if (startString === '') {
+  const string = [];
+
+  if (
+    typeof set !== 'object'
+      || typeof startString !== 'string'
+      || startString.length === 0
+  ) {
     return '';
   }
-  let compoundString = '';
-  set.forEach((string) => {
-    const compare = string.split(startString);
-    if (compare.length > 1 && compare[0] === '') {
-      compoundString ? compoundString += `-${compare[1]}` : compoundString += `${compare[1]}`;
+
+  for (const item of set) {
+    if (item && item.startsWith(startString)) {
+      string.push(item.slice(startString.length));
     }
-  });
-  return compoundString;
+  }
+  return string.join('-');
 }
