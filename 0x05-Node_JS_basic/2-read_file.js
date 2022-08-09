@@ -1,14 +1,15 @@
 const fs = require('fs')
 function countStudents(path) {
-    let data = '';
-    try {
-      data = fs.readFileSync(path);
-    } catch (error) {
-      throw new Error('Cannot load the database');
-    }
-    let dataArray = data.split('\n');
-    dataArray = dataArray.filter((str) => {
-      return str !== '';
+  let data = '';
+
+  try {
+    data = fs.readFileSync(path);
+  } catch (err) {
+    throw new Error('Cannot load the database');
+  }
+  let dataArray = data.split('\n');
+  dataArray = dataArray.filter((str) => {
+    return str !== '';
   });
 
   const newArray = [];
