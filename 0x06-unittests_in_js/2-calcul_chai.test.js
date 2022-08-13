@@ -1,6 +1,6 @@
 var chai = require('chai');
 
-const calculateNumber = require('./2-calcul');
+const calculateNumber = require('./2-calcul_chai.js');
 
 describe('calculateNumber', function () {
   describe('round flat and round up', function () {
